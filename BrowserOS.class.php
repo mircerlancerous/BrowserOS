@@ -123,7 +123,7 @@ class BrowserOSConfig extends BrowserOS{
 	protected $themeFile = "BrowserOS.css";
 	protected $menuItems = array();
 	
-	public function BrowserGUIConfig(){
+	public function BrowserOSConfig(){
 		$this->menuItems[] = new BrowserOSMenuItem("TestFile.htm","Open TestFile");
 	}
 }
