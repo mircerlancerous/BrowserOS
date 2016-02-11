@@ -1,0 +1,23 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>BrowserOS Test File</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<script type="text/javascript">
+		function showPopUp(str){
+			if(typeof(this.parent.showPopUp) === 'function'){
+				this.parent.showPopUp(str);
+			}
+			else{
+				alert('pop up in parent not found');
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>BrowserOS Test File Content</div>
+	<p>&nbsp;</p>
+	<a style="color: blue; border: 1px solid black" onclick="showPopUp('Testing PopUp from Window');">PopUp Test</a>
+</body>
+</html>
