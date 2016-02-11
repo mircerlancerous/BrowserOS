@@ -1,6 +1,6 @@
 # BrowserOS
 
-[Project Page](http://offthebricks.com/?page=programming&sub=projects&item=browseros)
+[Project Page](http://offthebricks.com/?page=programming&sub=projects&item=browseros) or 
 [Try it Out](http://offthebricks.com/pages/programming/browseros/BrowserOS.php)
 
 A desktop-style windowed OS within a web browser. Light-weight, efficient, and written in PHP and JavaScript with hardware acceleration and no external dependencies. Very carefully styled to provide typical dragging to move and resize windows. HTML5 request animationframe is used to smooth movement of the windows. This is NOT designed in any way to be used on a touch device.
