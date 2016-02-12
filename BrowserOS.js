@@ -235,7 +235,7 @@ function showPopUp(msg,noclose){
 	}
 	if(!noclose){
 		var closeImg = document.createElement("img");
-		closeImg.src = "close_icon.png";
+		closeImg.src = getImageSRC("close");
 		closeImg.className = "closeeditbtn";
 		closeImg.onclick = function(){
 				hidePopUp();
@@ -323,17 +323,17 @@ function createWin(action){
 	var header = document.createElement("td");
 	newRow.appendChild(header);
 	header.className = "header";
-	header.innerHTML = "<img src='menu.png' title='menu' onclick=\"openMenu(event,this);\"/>"+
+	header.innerHTML = "<img src='"+getImageSRC("menu")+"' title='menu' onclick=\"openMenu(event,this);\"/>"+
 		"<div class='menu'>"+
 			"<div onclick=\"reloadWin(this);\">Reload</div>"+
 			"<div onclick=\"closeWin(event,this);\">Close</div>"+
 		"</div>"+
 		"<span class='title'>Loading...</span>"+
 		"<span class='control'>"+
-			"<img src='min_icon.png' title='minimize' onclick=\"minWin(event,this);\"/>"+
-			"<img src='downsize_icon.png' title='downsize' style='display:none;' onclick=\"downsizeWin(event,this);\"/>"+
-			"<img src='max_icon.png' title='maximize' onclick=\"maxWin(event,this);\"/>"+
-			"<img src='close_icon.png' title='close' onclick=\"closeWin(event,this);\"/>"+
+			"<img src='"+getImageSRC("min")+"' title='minimize' onclick=\"minWin(event,this);\"/>"+
+			"<img src='"+getImageSRC("downsize")+"' title='downsize' style='display:none;' onclick=\"downsizeWin(event,this);\"/>"+
+			"<img src='"+getImageSRC("max")+"' title='maximize' onclick=\"maxWin(event,this);\"/>"+
+			"<img src='"+getImageSRC("close")+"' title='close' onclick=\"closeWin(event,this);\"/>"+
 		"</span>";
 	header.onmousedown = function(event){
 			startmovewin(event,this);
@@ -727,7 +727,7 @@ function showHideBorder(wObj){
 	//determine which control icons to show
 	var list = control.getElementsByTagName('img');
 	for(var i=0; i<list.length; i++){
-		if(list[i].src.search('downsize_icon.png') >= 0){
+		if(list[i].src.search(getImageSRC('downsize',true)) >= 0){
 			if(wObj.minimized || wObj.maximized){
 				list[i].style.display = "";
 			}
@@ -735,7 +735,7 @@ function showHideBorder(wObj){
 				list[i].style.display = "none";
 			}
 		}
-		else if(list[i].src.search('max_icon.png') >= 0){
+		else if(list[i].src.search(getImageSRC('max',true)) >= 0){
 			if(!wObj.maximized){
 				list[i].style.display = "";
 			}
@@ -743,7 +743,7 @@ function showHideBorder(wObj){
 				list[i].style.display = "none";
 			}
 		}
-		else if(list[i].src.search('min_icon.png') >= 0){
+		else if(list[i].src.search(getImageSRC('min',true)) >= 0){
 			if(!wObj.minimized){
 				list[i].style.display = "";
 			}
@@ -779,6 +779,23 @@ function showHideBorder(wObj){
 			list[v].style.display = display;
 		}
 	}
+}
+
+function getImageSRC(name,nopath){
+	var imagepath = "images/";
+	var file = "";
+	switch(name){
+		case 'close':file = "close_icon.png";break;
+		case 'min':file = "min_icon.png";break;
+		case 'menu':file = "menu.png";break;
+		case 'downsize':file = "downsize_icon.png";break;
+		case 'max':file = "max_icon.png";break;
+		default:return "";
+	}
+	if(typeof(nopath) !== 'undefined' && nopath){
+		return file;
+	}
+	return imagepath+file;
 }
 
 function closeWin(event,elm){
