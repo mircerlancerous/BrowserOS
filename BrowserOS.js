@@ -268,7 +268,7 @@ var offsetY = 0;
 var zMax = 0;
 var lastLeft = 10;
 var lastTop = 45;
-var defTopOffset = 34;
+var defTopOffset = 31;
 
 var winObjArr = new Array();
 
